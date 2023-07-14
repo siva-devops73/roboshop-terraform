@@ -3,6 +3,6 @@ module "instances" {
   source      = "git::https://github.com/siva-devops73/tf-module-app.git"
   component   = each.key
   env         = var.env
-  tags        = each.valu["tags"]
+  tags        = each.value["tags"]
 
 }
