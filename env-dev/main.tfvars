@@ -38,7 +38,7 @@ components = {
 
 }
 
-tags {
+tags = {
   company_name = "Siva Infotech"
   buisness = "Ecommerce"
   project_name = "RoboShop"
