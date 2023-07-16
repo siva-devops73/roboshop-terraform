@@ -36,4 +36,10 @@ components = {
     tags = {Monitor = "true", env = "dev"}
   }
 
-  }
+}
+
+tags {
+  company_name = "Siva Infotech"
+  buisness = "Ecommerce"
+  project_name = "RoboShop"
+}
