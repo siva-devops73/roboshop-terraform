@@ -11,13 +11,13 @@ module "vpc" {
 }
 
 
-#module "vpc" {
+#module "app_server" {
 #  source      = "git::https://github.com/siva-devops73/tf-module-app.git"
 
 #  env            = var.env
 #  tags           = var.tags
- # components     = var.components
- # subnet_id      =
+#  components     = "test"
+#  subnet_id      = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "app", null), "subnet_ids", null)
 
 output "subnets_ids" {
   value = module.vpc
