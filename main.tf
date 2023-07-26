@@ -27,7 +27,7 @@ module "rabbitmq" {
   source          = "git::https://github.com/siva-devops73/tf-module-rabbitmq.git"
 
   for_each        = var.rabbitmq
-  component        = each_value["component"]
+  component       = each.value["component"]
   instance_type   = each.value["instance_type"]
 
   sg_subnets_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), "app", null), "cidr_block", null)
