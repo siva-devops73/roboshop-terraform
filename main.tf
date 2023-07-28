@@ -58,7 +58,7 @@ module "rds" {
   vpc_id            = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
   sg_subnet_cidr    = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), "app", null), "cidr_block", null)
 
-  kms_key_id        = var.kms_key_arn
+  kms_key_arn       = var.kms_key_arn
   env               = var.env
   tags              = var.tags
 
