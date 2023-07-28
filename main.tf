@@ -42,19 +42,19 @@ module "rabbitmq" {
 }
 
 
-module "rds" {
-  source = "git::https://github.com/siva-devops73/tf-module-rds.git"
+#module "rds" {
+#  source = "git::https://github.com/siva-devops73/tf-module-rds.git"
 
-  for_each = var.rds
-  component       = each.value["component"]
-  engine     = each.value["engine"]
-  engine_version = each.value["engine_version"]
-  database_version  = each.value["database_version"]
+#  for_each = var.rds
+#  component       = each.value["component"]
+#  engine     = each.value["engine"]
+#  engine_version = each.value["engine_version"]
+#  database_version  = each.value["database_version"]
 
-  subnet_id = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)
+#  subnet_id = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)
 
-  env             = var.env
-  tags            = var.tags
-}
+#  env             = var.env
+#  tags            = var.tags
+#}
 
 
