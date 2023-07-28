@@ -67,3 +67,14 @@ rabbitmq = {
     component     = "rabbitmq"
   }
 }
+
+
+rds = {
+  main = {
+    component = "mysql"
+    engine    = "aurora_mysql"
+    engine_version = "5.7.mysql_aurora.2.11.3"
+    database_name = "dummy"
+
+  }
+}
