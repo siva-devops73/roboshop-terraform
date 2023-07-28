@@ -1,43 +1,5 @@
 env = "dev"
 
-components = {
-
-  frontend = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  mongodb  = {
-    tags = {env = "dev"}
-  }
-  catalogue = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  redis    = {
-    tags = {env = "dev"}
-  }
-  cart     = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  user     = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  mysql    = {
-    tags = {env = "dev"}
-  }
-  shipping = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  dispatch = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-  rabbitmq = {
-    tags = {env = "dev"}
-  }
-  payment  = {
-    tags = {Monitor = "true", env = "dev"}
-  }
-
-}
-
 tags = {
   company_name = "Siva Infotech"
   buisness = "Ecommerce"
@@ -59,6 +21,7 @@ vpc = {
 default_vpc_id = "vpc-0a0f029426bb6712b"
 default_vpc_rt = "rtb-0bfd661b06433b242"
 zone_id        = "Z07939863Q47686AYR05W"
+kms_key_id     = "4c8938fc-8309-49ca-b140-218281d4c8da"
 allow_ssh_cidr = [ "172.31.9.143/32" ]
 
 rabbitmq = {
