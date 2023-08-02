@@ -53,5 +53,15 @@ documentdb = {
     instance_count = 1
     instance_class = "db.t3.medium"
   }
+}
 
+elasticache = {
+  main = {
+    component = "elasticache"
+    engine    = "redis"
+    engine_version = "6.2"
+    node_type  = "cache.t3.micro"
+    num_cache_clusters = 1
+    replicas_per_node_group = 1
+  }
 }
