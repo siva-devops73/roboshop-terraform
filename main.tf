@@ -94,7 +94,7 @@ module "elasticache" {
   engine                 = each.value["engine"]
   engine_version         = each.value["engine_version"]
   node_type              = each.value["node_type"]
-  num_cache_clusters     = each.value["num_cache_clusters"]
+  num_node_groups        = each.value["num_node_groups"]
   replicas_per_node_group = each.value["replicas_per_node_group"]
 
 
