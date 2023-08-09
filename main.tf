@@ -119,8 +119,8 @@ module "alb" {
 
 
   vpc_id                  = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
-  sg_subnet_cidr          = each.value["name"] == "public" ? ["0.0.0.0/0"] : locals.app_web_subnet_cidr
-  subnets                 = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.vale["subnet_ref"], null), "subnet_ids", null)
+  sg_subnet_cidr          = each.value["name"] == "public" ? ["0.0.0.0/0"] : local.app_web_subnet_cidr
+  subnets                 = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.value["subnet_ref"], null), "subnet_ids", null)
 
 
   env                     = var.env
