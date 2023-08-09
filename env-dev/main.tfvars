@@ -65,3 +65,18 @@ elasticache = {
     replicas_per_node_group = 1
   }
 }
+
+alb = {
+  public = {
+    name                = "public"
+    internal            = false
+    load_balancer_type  = "application"
+    subnet_ref          = "public"
+  }
+  private = {
+    name                = "private"
+    internal            = false
+    load_balancer_type  = "application"
+    subnet_ref          = "app"
+  }
+}
