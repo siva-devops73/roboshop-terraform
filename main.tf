@@ -127,7 +127,7 @@ module "apps" {
   instance_type   = each.value["instance_type"]
   max_size        = each.value["max_size"]
   min_size        = each.value["min_size"]
-  components      = each.value["component"]
+  component      = each.value["component"]
 
 
   sg_subnets_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), each.value["subnet_ref"], null), "cidr_block", null)
