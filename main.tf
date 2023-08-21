@@ -128,12 +128,15 @@ module "apps" {
   max_size        = each.value["max_size"]
   min_size        = each.value["min_size"]
   component      = each.value["component"]
+  lb_rule_priority = each.value["lb_rule_priority"]
 
 
   sg_subnets_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), each.value["subnet_ref"], null), "cidr_block", null)
   subnets         = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.value["subnet_ref"], null), "subnet_ids", null)
   vpc_id          = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
   //module.vpc["subnet_ids"]["app"]["subnet_ids'][0]
+  alb_dns_name    = lookup(lookup(module.alb, each.value["lb_ref"], null), "dns_name", null)
+  listener_arn    = lookup(lookup(module.alb, each.value["lb_ref"], null), "listener_arn", null)
 
   env            = var.env
   tags           = var.tags
