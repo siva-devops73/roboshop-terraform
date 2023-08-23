@@ -27,7 +27,7 @@ module "vpc" {
   #tags            = var.tags
   #allow_ssh_cidr  = var.allow_ssh_cidr
   #zone_id         = var.zone_id
-  #kms_key_id      = var.kms_key_id
+  #kms_key_id      = var.kms_key_arn
 
 #}
 
@@ -131,7 +131,7 @@ module "apps" {
   lb_rule_priority = each.value["lb_rule_priority"]
 
 
-  sg_subnets_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), each.value["subnet_ref"], null), "cidr_block", null)
+  sg_subnets_cidr = each.value["component"] == "frontend" ? local.public_web_subnet_cidr : lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), each.value["subnet_ref"], null), "cidr_block", null)
   subnets         = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.value["subnet_ref"], null), "subnet_ids", null)
   vpc_id          = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
   //module.vpc["subnet_ids"]["app"]["subnet_ids'][0]
