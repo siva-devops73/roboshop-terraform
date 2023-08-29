@@ -129,6 +129,7 @@ module "apps" {
   min_size        = each.value["min_size"]
   component      = each.value["component"]
   lb_rule_priority = each.value["lb_rule_priority"]
+  extra_param_access = try(each.value["extra_param_access"], [])
 
 
   sg_subnets_cidr = each.value["component"] == "frontend" ? local.public_web_subnet_cidr : lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), each.value["subnet_ref"], null), "cidr_block", null)
@@ -142,6 +143,7 @@ module "apps" {
   tags           = var.tags
   kms_key_id     = var.kms_key_arn
   allow_ssh_cidr = var.allow_ssh_cidr
+  kms_arn        = var.kms_key_arn
 }
 
 
