@@ -127,6 +127,7 @@ apps = {
     subnet_ref = "app"
     lb_ref     = "private"
     lb_rule_priority = 104
+    extra_param_access = ["arn:aws:ssm:us-east-1:904827379241:parameter/roboshop.dev.mysql.*"]
   }
   payment = {
     component = "payment"
