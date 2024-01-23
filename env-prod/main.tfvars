@@ -61,7 +61,7 @@ elasticache = {
     component = "elasticache"
     engine    = "redis"
     engine_version = "6.2"
-    node_type  = "cache.t3.small"
+    node_type  = "cache.t3.medium"
     num_node_groups = 1
     replicas_per_node_group = 1
   }
