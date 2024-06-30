@@ -149,6 +149,11 @@ module "vpc" {
 #}
 
 
+module "eks" {
+   source = "git::https://github.com/siva-devops73/tf-module-eks.git"
+
+
+}
 
 
 
