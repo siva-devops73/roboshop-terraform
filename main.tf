@@ -150,7 +150,15 @@ module "vpc" {
 
 
 module "eks" {
-   source = "git::https://github.com/siva-devops73/tf-module-eks.git"
+   source        = "git::https://github.com/siva-devops73/tf-module-eks.git"
+   for_each      = var.eks
+   subnets_ids   = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), each.value["subnet_ref"], null), "subnet_ids", null)
+   env           = var.env
+   max_size        = each.value["max_size"]
+   min_size        = each.value["min_size"]
+  capacity_type    = each.value["capacity_type"]
+  instance_types    = each.value["instance_types"]
+
 
 
 }

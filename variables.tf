@@ -14,3 +14,4 @@ variable "documentdb" {}
 variable "elasticache" {}
 variable "alb" {}
 variable "apps" {}
+variable "eks" {}
